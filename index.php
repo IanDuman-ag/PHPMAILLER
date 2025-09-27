@@ -106,7 +106,7 @@
         <div class="login-container">
 
             <div class="login-form" id="loginForm">
-                <h2 class="text-center">Welcome Back!</h2>
+                <h2 class="text-center">Hello Welcome Back!</h2>
                 <p class="text-center">Fill your login details.</p>
                 <form action="./endpoint/login.php" method="POST">
                     <div class="form-group">
