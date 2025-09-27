@@ -19,7 +19,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 
-        * {
+       * {
             margin: 0;
             padding: 0;
             font-family: 'Poppins', sans-serif;
@@ -36,7 +36,7 @@
             height: 100vh;
         }
 
-        .login-form, .registration-form {
+        .login-form, .registration-form, .verification-form {
             /* Layout + text */
             color: #ffffff;
             padding: 40px;
@@ -55,7 +55,7 @@
         }
 
         /* Animated rainbow gradient background */
-        .login-form::before, .registration-form::before {
+        .login-form::before, .registration-form::before, .verification-form::before {
             content: "";
             position: absolute;
             inset: 0;
@@ -75,7 +75,7 @@
         }
 
         /* Subtle inner glass overlay for readability */
-        .login-form::after, .registration-form::after {
+        .login-form::after, .registration-form::after, .verification-form::after {
             content: "";
             position: absolute;
             inset: 2px;
@@ -87,7 +87,7 @@
         }
 
         /* Ensure content sits above overlays */
-        .login-form > *, .registration-form > * {
+        .login-form > *, .registration-form > *, .verification-form > * {
             position: relative;
             z-index: 1;
         }

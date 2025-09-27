@@ -19,6 +19,9 @@
             font-family: 'Poppins', sans-serif;
         }
 
+        /* spacing under navbar for home content */
+        .content { margin: 40px auto; }
+
         body {
             display: flex;
             justify-content: center;
@@ -30,7 +33,7 @@
             height: 100vh;
         }
 
-        .login-form, .registration-form {
+        .login-form, .registration-form, .content {
             /* Layout + text */
             color: #ffffff;
             padding: 40px;
@@ -38,6 +41,7 @@
             border-radius: 14px;
             position: relative;
             overflow: hidden;
+
 
             /* No solid border; let the gradient be the background */
             border: none;
@@ -49,7 +53,7 @@
         }
 
         /* Animated rainbow gradient background */
-        .login-form::before, .registration-form::before {
+        .login-form::before, .registration-form::before, .content::before {
             content: "";
             position: absolute;
             inset: 0;
@@ -69,7 +73,7 @@
         }
 
         /* Subtle inner glass overlay for readability */
-        .login-form::after, .registration-form::after {
+        .login-form::after, .registration-form::after, .content::after {
             content: "";
             position: absolute;
             inset: 2px;
@@ -81,16 +85,27 @@
         }
 
         /* Ensure content sits above overlays */
-        .login-form > *, .registration-form > * {
+        .login-form > *, .registration-form > *, .content > * {
             position: relative;
             z-index: 1;
         }
 
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        /* Wider responsive card for the home page content while keeping the same look */
+        .content {
+            width: 95%;
+            max-width: 1200px;
+            overflow: auto; /* allow scrolling if table overflows */
         }
+
+        /* Override body layout for home page so long tables are visible and page can grow */
+        body {
+            display: block;
+            justify-content: initial;
+            align-items: initial;
+            height: auto;
+            min-height: 100vh;
+        }
+
         .switch-form-link {
             text-decoration: underline;
             cursor: pointer;

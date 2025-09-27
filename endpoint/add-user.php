@@ -99,6 +99,17 @@ if (isset($_POST['verify'])) {
         $userVerificationID = $_POST['user_verification_id'];
         $verificationCode = $_POST['verification_code'];
     
+        // If no code entered, prompt and return without altering the account
+        if (empty($verificationCode)) {
+            echo "
+            <script>
+                alert('Please enter the verification code sent to your email.');
+                window.location.href = 'http://localhost/dumanag/verification.php';
+            </script>
+            ";
+            exit;
+        }
+
         $stmt = $conn->prepare("SELECT `verification_code` FROM `tbl_user` WHERE `tbl_user_id` = :user_verification_id");
         $stmt->execute([
             'user_verification_id' => $userVerificationID,
@@ -106,6 +117,12 @@ if (isset($_POST['verify'])) {
         $codeExist = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($codeExist && $codeExist['verification_code'] == $verificationCode) {
+            // Clear verification code to mark email as verified
+            $clearStmt = $conn->prepare("UPDATE `tbl_user` SET `verification_code` = NULL WHERE `tbl_user_id` = :user_verification_id");
+            $clearStmt->execute([
+                'user_verification_id' => $userVerificationID
+            ]);
+
             session_destroy();
             echo "
             <script>
