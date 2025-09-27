@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "
             <script>
                 alert('Login Successfully!');
-                window.location.href = '/orale/emailverify-main/dumanag/home.php';
+                window.location.href = 'http://localhost/dumanag/home.php';
             </script>
             "; 
         } else {
@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "
             <script>
                 alert('Login Failed, Incorrect Password!');
-                window.location.href = '/orale/emailverify-main/dumanag/index.php';
+                window.location.href = 'http://localhost/dumanag/index.php';
             </script>
             ";
         }
@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "
         <script>
             alert('Login Failed, User Not Found!');
-            window.location.href = '/orale/emailverify-main/dumanag/index.php';
+            window.location.href = 'http://localhost/dumanag/index.php';
         </script>
         ";
     }
